@@ -8,6 +8,7 @@
             <a-menu-item
                 v-for="(item, index) in routes"
                 :key="index"
+                @click="goRouter(item)"
             >
                 <a-icon type="user" />
                 <span>{{item.name}}</span>
@@ -24,6 +25,11 @@ export default {
       routes,
     };
   },
+  methods: {
+    goRouter(item){
+        this.$router.push(item.path)
+    }
+  }
 };
 </script>
 

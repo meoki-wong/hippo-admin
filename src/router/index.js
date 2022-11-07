@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-
+import { authRouter } from './auth'
 Vue.use(VueRouter);
 
 export const routes = [
@@ -20,10 +20,13 @@ export const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
 ];
-
+const routerContain = [
+  ...authRouter,
+  ...routes
+]
 const router = new VueRouter({
   mode: "history",
-  routes,
+  routes: routerContain,
 });
 
 export default router;
