@@ -6,7 +6,7 @@
             :default-selected-keys="['1']"
         >
             <a-menu-item
-                v-for="(item, index) in routes"
+                v-for="(item, index) in routes[0].children"
                 :key="index"
                 @click="goRouter(item)"
             >
@@ -24,6 +24,9 @@ export default {
     return {
       routes,
     };
+  },
+  mounted(){
+    console.log('---router', routes);
   },
   methods: {
     goRouter(item){
