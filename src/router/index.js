@@ -31,6 +31,7 @@ const routerContain = [
 const router = new VueRouter({
   mode: "history",
   routes: routerContain,
+  base: window.__POWERED_BY_QIANKUN__ ? '/vue/' : '/blog-admin/',
 });
 
 export default router;
