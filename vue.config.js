@@ -1,7 +1,7 @@
 
 const path = require('path')
 
-
+const { name } = require('./package.json')
 
 module.exports = {
   configureWebpack: {
@@ -9,9 +9,17 @@ module.exports = {
       alias: {
         '@': path.resolve(__dirname, 'src')
       }
+    },
+    output: {
+      library: `${name}-[name]`,
+      libraryTarget: 'umd',
+      jsonpFunction: `webpackJsonp_${name}`,
     }
   },
   devServer: {
-    hot: true
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    hot: true,
+    port: 9000,
+    open: true
   }
 }
